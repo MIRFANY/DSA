@@ -1,45 +1,63 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-
-class Node {
+class Node{
     public:
     int data;
     Node* next;
 
-    Node(int data){
-        this -> data= data ;
-        this -> next=NULL;
+    Node(int d){
+        
+        data =d;
+        next=nullptr;
+
     }
+
 
 };
 
-void traverseSinglyLinkl(Node* head){
-    node* current = head;
-
-    while(current!=nullptr){
-        cout<< current -> data << endl;
-
-        current=current -> next ;
+void insertAtHead(Node* &head, int d){
+    Node* temp = new Node(d);
+    temp -> next =head;
+    head = temp;
+}
+int print(Node* &head){
+    Node* temp = head;
+    while(temp!=nullptr){
+        cout<<temp->data<<endl;
+        temp = temp->next;
     }
+    cout<<endl;
+
 }
 
-void searchSinglyLL(struct node* head, int target){
-    node* current = head;
-    while(current!=nullptr){
-        if(current-> data==target){
-            return true;
-        }
-        current = current-> next;
+void insertAtPosition(Node* &head,int d, int pos){
+    Node* temp = head;
+
+    int cnt =1;
+    while(cnt < pos-1){
+        cnt++;
+        temp =temp->next;
     }
-    return false;
+
+    
+    Node* nodeToinsert=new Node(d);
+    nodeToinsert->next = temp ->next;
+    temp ->next =nodeToinsert;
+
 }
 
 int main(){
-    Node* node1= new Node();
+    Node* node1 = new Node(12);
+    // cout<< node1->data <<endl;
+    // cout<< node1->next <<endl;
+    Node* head = node1;
+    insertAtHead(head, 13);
+    insertAtHead(head, 16);
+    insertAtHead(head, 19);
 
-    cout<< node1 -> data << endl;
-    cout<< node1 -> next << endl;
+    print(head);
+
+    insertAtPosition(head,3,8);
 
 
-    return 0;
 }
