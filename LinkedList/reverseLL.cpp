@@ -20,6 +20,19 @@ void print(Node* &head){
 
 }
 
+void reverse(Node* &head){
+    Node* prev = NULL;
+    Node* curr= head;
+    Node* forward= NULL;
+    while(curr!= NULL){
+        forward= curr -> next;
+        curr -> next = prev;
+        prev= curr;
+        curr = forward;
+    }
+
+}
+
 
 int insert(Node* &head, int d){
     Node* temp= new Node(d);
@@ -38,8 +51,6 @@ void reverse(Node* &head){
         prev=curr;
         curr=forward;
     }
-    
-
 }
 
 

@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+class Node{
+    public:
+    int data;
+    Node* next;
+
+    Node(int d){
+        data= d;
+        next = nullptr;
+    }
+};
+
+int  reverseKgroup(Node* head,int k){
+    Node* prev=NULL;
+    Node* curr= head;
+    Node* forward = NULL;
+
+    if(head == nullptr || head->next == NULL){
+        return head;
+    }
+    int cnt =0;
+
+    while(curr != nullptr && cnt < k){
+        forward = curr ->next;
+        curr -> next = prev;
+        prev= curr;
+        curr=forward;
+        cnt++;
+    }
+    if(forward != nullptr){
+        head -> next = reverseKgroup(forward, k);
+    }
+
+    return prev;
+
+
+}
+
+ 
+int main(){
+    Node* node1 = new Node(54);
+    Node* head = node1;
+    reverseKgroup(head,3);
+
+
+}

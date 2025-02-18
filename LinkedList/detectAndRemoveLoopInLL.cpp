@@ -35,6 +35,33 @@ bool detectLoop(Node* head){
 }
 
 
+//floyd's cycle detection algorithm
+bool detectCycle(Node* head){
+    if( head == NULL || head -> next ==nullptr){
+        return false;
+    }
+
+    Node* slow= head;
+    Node* fast= head;
+    while(fast != nullptr ){
+        fast = fast -> next;
+        if(fast!=nullptr){
+            fast= fast ->next;
+
+        }
+
+        slow = slow ->next;
+        if(slow == fast){
+            return true;
+        }
+    }
+
+    return false;
+
+
+}
+
+
 
 int main(){
 
