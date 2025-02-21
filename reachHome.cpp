@@ -12,7 +12,6 @@ int reachHome(int src, int des){
 int main(){
     int src=1;
     int des=10;
-    // src and destination
     cout<<"The scr now is:"<< src <<" and the destination is "<<des <<endl;
 
     reachHome(src,des);
