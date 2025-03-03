@@ -2,16 +2,42 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+void insertionSort(int arr[], int n){
+    for(int i=0;i<n;i++){
+        int temp=arr[i];
+        int j=i-1;
+        for( ; j>=0;j--){
+            if(arr[j]>temp){
+                //shift
+                arr[j+1]=arr[j];
+            }
+            else{
+                break;
+            }
+        }
+        arr[j+1]=temp;
+    }
+}
+void printArray(int arr[], int n){
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+}
+
 
 int main() {
     // your code here
     int arr[5]={2,5,1,6,3};
     int n=5;
-    int min=INT_MAX;
-    for(int i=0;i<n;i++){
-        
-        
-    }
+
+    cout<<"The array before insertion sort is: "<<" ";
+    printArray(arr,n);
+
+    cout<<endl;
+    cout<<"The array after insertion sort is :"<<" ";
+
+    insertionSort(arr,n);
+    printArray(arr,n);
     return 0;
 }
 
