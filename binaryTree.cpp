@@ -1,6 +1,6 @@
 #include<iostream>
-#include<queue>
 using namespace std;
+
 class node{
     public:
     int data;
@@ -8,102 +8,190 @@ class node{
     node* right;
 
     node(int val){
-        this->data=val;
+        this->data = val;
         this->left=nullptr;
         this->right=nullptr;
     }
-
 };
 
 node* buildTree(node* root){
+    cout<<"Enter the data:"<<endl;
     int data;
-    cout<<"Enter the data :"<< endl;
     cin>>data;
     root= new node(data);
     if(data == -1){
         return NULL;
     }
-    cout<<"Enter data for inserting in the left of data"<< data <<endl;
-    root->left= buildTree(root->left);
-    cout<<"Enter data for inserting in the right of data"<<data<<endl;
-    root->right=buildTree(root->right);
+
+    cout<<"Enter data for inserting in the left of "<<data <<endl;
+
+    root -> left = buildTree(root->left);
+    cout<<"Enter data for inserting in the right of :"<<data<<endl;
+    root->right = buildTree(root->right);
     return root;
+
 }
 
-node* buildTree(node* root){
-    int data;
-    cout<<"Enter the data:"<<endl;
-    cin>>data;
-    root= new node(data);
-    if(data==-1){
-        return NULL;
-    }
+//traversal of tree
 
-    cout<<"Enter the data for inserting int he left of :"<<data<<endl;
-    root->left=buildTree(root->left);
-    cout<<"Enter the data for inserting in the right of : "<<data <<endl;
-    root->right=buildTree(root->right);
-}
 
-node* buildTree(node* root){
-    int data;
-    cout<<"Enter the data:"<<endl;
-    cin>>data;
-    root=new node(data);
-    if(data == -1){
-        return NULL;
-    }
-    cout<<"Enter data for inserting in the left : "<<data<<endl;
-    root->left=buildTree(root->left);
-    cout<<"Enter data for inserting in the right : "<<data<<endl;
-    root->right=buildTree(root->right);
 
-    return root;
-}
-
-void inOrder(node* root){
+// depthFirstSearch
+void preOrder(node* root){
     if(root == NULL){
         return;
     }
-
-    inOrder(root->left);
-    cout<<root->data<<endl;
-    inOrder(root->right);
-}
-void preOrder(node* root){
-    if(root== NULL){
-        return;
-    }
-
     cout<<root->data<<endl;
     preOrder(root->left);
     preOrder(root->right);
 
 }
+
+
+void inOrder(node* root){
+    if(root==NULL){
+        return;
+    }
+
+    inOrder(root->left);
+    cout<<root->data;
+    inOrder(root->right);
+}
+
 void postOrder(node* root){
     if(root== NULL){
         return;
     }
+
     postOrder(root->left);
     postOrder(root->right);
     cout<<root->data;
+}
+int main(){
+    node* root =NULL;
+    root= buildTree(root);
+    
+
 
 }
 
-void inOrder(node* root){
-    if(root==NULL){
-        return ;
-    }
 
-    inOrder(root->left);
-    cout<<root->data<<endl;
-    inOrder(root->right);
-}
 
-void preOrder(node* root){
-    if(root==NULL){
-        return;
-    }
+
+
+
+
+
+// #include<iostream>
+// #include<queue>
+// using namespace std;
+// class node{
+//     public:
+//     int data;
+//     node* left;
+//     node* right;
+
+//     node(int val){
+//         this->data=val;
+//         this->left=nullptr;
+//         this->right=nullptr;
+//     }
+
+// };
+
+// // node* buildTree(node* root){
+// //     int data;
+// //     cout<<"Enter the data :"<< endl;
+// //     cin>>data;
+// //     root= new node(data);
+// //     if(data == -1){
+// //         return NULL;
+// //     }
+// //     cout<<"Enter data for inserting in the left of data"<< data <<endl;
+// //     root->left= buildTree(root->left);
+// //     cout<<"Enter data for inserting in the right of data"<<data<<endl;
+// //     root->right=buildTree(root->right);
+// //     return root;
+// // }
+
+// node* buildTree(node* root){
+//     int data;
+//     cout<<"Enter the data:"<<endl;
+//     cin>>data;
+//     root= new node(data);
+//     if(data==-1){
+//         return NULL;
+//     }
+
+//     cout<<"Enter the data for inserting int he left of :"<<data<<endl;
+//     root->left=buildTree(root->left);
+//     cout<<"Enter the data for inserting in the right of : "<<data <<endl;
+//     root->right=buildTree(root->right);
+// }
+
+// // node* buildTree(node* root){
+// //     int data;
+// //     cout<<"Enter the data:"<<endl;
+// //     cin>>data;
+// //     root=new node(data);
+// //     if(data == -1){
+// //         return NULL;
+// //     }
+// //     cout<<"Enter data for inserting in the left : "<<data<<endl;
+// //     root->left=buildTree(root->left);
+// //     cout<<"Enter data for inserting in the right : "<<data<<endl;
+// //     root->right=buildTree(root->right);
+
+// //     return root;
+// // }
+
+// void inOrder(node* root){
+//     if(root == NULL){
+//         return;
+//     }
+
+//     inOrder(root->left);
+//     cout<<root->data<<endl;
+//     inOrder(root->right);
+// }
+// void preOrder(node* root){
+//     if(root== NULL){
+//         return;
+//     }
+
+//     cout<<root->data<<endl;
+//     preOrder(root->left);
+//     preOrder(root->right);
+
+// }
+// void postOrder(node* root){
+//     if(root== NULL){
+//         return;
+//     }
+//     postOrder(root->left);
+//     postOrder(root->right);
+//     cout<<root->data;
+
+// }
+
+
+// void levelOrderTraversal(node* root){
+//     queue<node*> q;
+//     q.push(root);
+//     while(!q.empty()){
+//         node* temp = q.front();
+//         q.pop();
+//         if(temp ->left){
+//             q.push(temp->left);
+//         }
+
+//         if(temp-> right){
+//             q.push(temp->right);
+//         }
+//     }
+
+// }
+void levelOrder(){
     
 }
 
