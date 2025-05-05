@@ -1,1 +1,1 @@
-ch++;
+cout<<sumT(a);
