@@ -3,7 +3,7 @@ using namespace std;
 
 class node{
     public:
-    int data;
+    int val;
     node* left;
     node* right;
 
@@ -30,6 +30,16 @@ node* buildTree(node* root){
     root->right = buildTree(root->right);
     return root;
 
+}
+
+int diameter(Node* root){
+    if(root==NULL){
+        return;
+    }
+
+     diameter(root->left);
+     diameter(root->right);
+     
 }
 
 //traversal of tree
@@ -66,6 +76,16 @@ void postOrder(node* root){
     postOrder(root->left);
     postOrder(root->right);
     cout<<root->data;
+}
+
+
+void sumOT(Node* root){
+    if(root==NULL){
+        return;
+    }
+    return root->val + sum(root->left) + sum(root->right);
+
+
 }
 int main(){
     node* root =NULL;
