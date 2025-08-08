@@ -1,85 +1,37 @@
-#include<iostream>
-#include<cstring>
+#include <iostream>
 using namespace std;
 
-void swap(int* a, int* b){
-    int temp=*a;
-    *a=*b;
-    *b=temp;
+int main() {
+    int num=5;
+    int a=num;
+    cout<<"a before "<< num << endl;
+    a++;
+    cout<<"a after"<< num << endl;
 
-}
+    int *p =&num;
+    cout<<"before " << num <<endl;
+    (*p)++;
+    cout<< "after " << num << endl;
+    // copying a pointer 
+    int *q = p;
+    cout<< p<<"-" << q << endl;
+    cout<< *p << "-"<< *q << endl;
 
-// void reverseStr(char* str){
-//     //start and end lelo pehle
-//     char* start= str;
-//     char* end= str + strlen(str)-1;
 
-//     //swap characters until pointers until pointers meet
-//     while(start<end){
-//         char temp = *start;
-//         *start= *end;
-//         *end=temp;
+    // important concept
+    int i=7;
+    int *r=&i;
+    cout<< (*r)++ <<endl;
 
-//         start++;
-//         end--;
-//     }
-// }
+    // your code here
 
-void reverseStr(char* str){
-    char* start=str;
-    char* end= str + strlen(str)-1;
-    while(start < end){
-    char temp = *start;
-    *start= *end;
-    *end= temp;
-
-    start++;
-    end--;
-    }
-}
+    int a[20]={1,2,3,5};
+    cout<< &a[0] <<endl;
+    cout<< &a << endl;
+    cout<< a << endl;
 
 
 
-void sumArray(int arr[],int n){
-    int sum=0;
-    for(int i=0;i<n;i++){
-        sum+=arr[i];
-    }
 
-    cout<<"The sum of elts of array is :"<<sum<<endl;
-}
-
-// 
-// Create a function to find the length of a string using pointers.
-
-int stringLength(char* str){
-    char* ptr= str;
-    int length=0;
-    while(*ptr != '\0'){
-        length++;
-        ptr++;
-    }
-
-    return length;
-}
-
-int main(){
-    int a=3,b=8;
-    swap(&a,&b);
-
-    // char str[]="Hello, Irfan";
-    // char str[]="Hello , NIT";
-
-
-    // reverseStr(str);
-
-    // reverseStr(str);
-
-    // cout<<"The reversed string is :"<<str<<endl;
-    // cout<<"The reversed string is: "<<str<<endl;
-
-    int *arr= new int(7);
-    sumArray(arr,7);
-
-
+    return 0;
 }
