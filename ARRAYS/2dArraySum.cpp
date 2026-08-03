@@ -14,6 +14,8 @@ int main() {
         }
     }
 
+    // /sum variable
+
     cout<<"The sum of all the elements of the array is: "<<sum;
 
     // your code here
